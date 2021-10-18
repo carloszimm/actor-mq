@@ -1,0 +1,29 @@
+syntax = "proto3";
+package messages;
+import "github.com/AsynkronIT/protoactor-go/actor/protos.proto";
+
+
+message CreateChannelMsg{
+    string ChannelName = 1;
+    int32 ChannelType = 2;
+}
+
+message PublishMsg{
+    string ChannelName = 1;
+    bytes Content = 2;
+}
+
+message NotifyMsg{
+    string ChannelName = 1;
+    bytes Content = 2;
+}
+
+message SubscribeMsg{
+    string ChannelName = 1;
+    actor.PID Subscriber = 2;
+}
+
+message UnsubscribeMsg{
+    string ChannelName = 1;
+    actor.PID Subscriber = 2;
+}
